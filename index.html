@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopEasy | Online Shopping</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="#">Shop<span>Easy</span></a>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="cart-button" id="cartButton">🛒 Cart <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <div>
+          <p class="eyebrow">WELCOME TO SHOPEASY</p>
+          <h1>Find what you love.<br><span>Shop with ease.</span></h1>
+          <p>Discover useful products at great prices. Search, add to cart and place your order in a few easy steps.</p>
+          <a class="primary-link" href="#products">Shop Now</a>
+        </div>
+        <div class="hero-art" aria-label="Shopping bags illustration">🛍️</div>
+      </div>
+    </section>
+
+    <section class="container shop-section" id="products">
+      <div class="section-heading">
+        <div><p class="eyebrow">OUR COLLECTION</p><h2>Featured Products</h2></div>
+        <p>Choose your favourite products</p>
+      </div>
+
+      <div class="filters">
+        <input id="searchInput" type="search" placeholder="Search products..." aria-label="Search products">
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="all">All Categories</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Home">Home</option>
+        </select>
+        <div class="price-filter">
+          <label for="maxPrice">Maximum price: <strong id="priceValue">Rs. 50,000</strong></label>
+          <input id="maxPrice" type="range" min="500" max="50000" step="500" value="50000">
+        </div>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+      <p class="empty-message hidden" id="noProducts">No products found. Try another search or filter.</p>
+    </section>
+
+    <section class="container benefits">
+      <div>🚚 <strong>Fast Delivery</strong><span>Across Pakistan</span></div>
+      <div>🔒 <strong>Secure Checkout</strong><span>Simple ordering</span></div>
+      <div>💬 <strong>Customer Support</strong><span>We're here to help</span></div>
+    </section>
+
+    <section class="container contact-section" id="contact">
+      <h2>Contact Us</h2>
+      <p>Have a question about an order? Email us at <a href="mailto:support@shopeasy.example">support@shopeasy.example</a></p>
+    </section>
+  </main>
+
+  <footer><div class="container">© 2026 ShopEasy. Student project demonstration.</div></footer>
+
+  <div class="drawer-backdrop hidden" id="backdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+    <div class="drawer-heading"><h2>Your Cart</h2><button class="icon-button" id="closeCart" aria-label="Close cart">✕</button></div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="total-row"><span>Subtotal</span><strong id="cartSubtotal">Rs. 0</strong></div>
+      <button class="primary-button full-width" id="checkoutButton">Proceed to Checkout</button>
+    </div>
+  </aside>
+
+  <div class="modal-backdrop hidden" id="checkoutModal">
+    <section class="modal">
+      <div class="modal-heading"><div><p class="eyebrow">ALMOST THERE</p><h2>Checkout</h2></div><button class="icon-button" id="closeCheckout" aria-label="Close checkout">✕</button></div>
+      <form id="checkoutForm">
+        <div class="form-grid">
+          <label>Full Name<input name="name" required placeholder="Your full name"></label>
+          <label>Email Address<input name="email" type="email" required placeholder="you@example.com"></label>
+          <label>Phone Number<input name="phone" type="tel" required placeholder="03XX XXXXXXX"></label>
+          <label>City<input name="city" required placeholder="Your city"></label>
+        </div>
+        <label>Delivery Address<textarea name="address" required rows="3" placeholder="House, street and area"></textarea></label>
+        <fieldset>
+          <legend>Payment Method</legend>
+          <label class="payment-option"><input type="radio" name="payment" value="Cash on Delivery" checked> Cash on Delivery</label>
+          <label class="payment-option"><input type="radio" name="payment" value="Online Payment"> Online Payment (demo only)</label>
+        </fieldset>
+        <div class="checkout-total"><span>Order Total</span><strong id="checkoutTotal">Rs. 0</strong></div>
+        <button class="primary-button full-width" type="submit">Place Order</button>
+        <p class="small-note">Demo checkout: no real payment is collected and no email is sent.</p>
+      </form>
+    </section>
+  </div>
+
+  <div class="modal-backdrop hidden" id="successModal">
+    <section class="modal success-modal">
+      <div class="success-icon">✓</div>
+      <p class="eyebrow">ORDER RECEIVED</p>
+      <h2>Thank you for your order!</h2>
+      <p id="successMessage"></p>
+      <div class="status-box"><strong>Order Status</strong><span class="status-pill">Order Placed</span></div>
+      <p class="small-note">In a live website, an order confirmation email and future status updates would be sent to your email address.</p>
+      <button class="primary-button full-width" id="continueShopping">Continue Shopping</button>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
